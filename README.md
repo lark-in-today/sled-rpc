@@ -1,6 +1,6 @@
 # Sled-RPC
 
-A rpc server to `set/get` values through __sled__.
+An RPC server to `set/get` values through __sled__.
 
 ## Set
 

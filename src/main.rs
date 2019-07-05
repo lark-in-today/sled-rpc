@@ -46,8 +46,15 @@ fn main() {
                 "true" => {
                     let mut values: Vec<Value> = vec![];
                     for i in t.iter() {
-                        values.push(Value::String(
-                            String::from_utf8(i.unwrap().0).unwrap())
+                        values.push(
+                            Value::Array(vec![
+                                Value::String(
+                                    String::from_utf8(i.to_owned().unwrap().0.to_vec()).unwrap()
+                                ),   
+                                Value::String(
+                                    String::from_utf8(i.unwrap().1.to_vec()).unwrap()
+                                )
+                            ])
                         );
                     }
                     return Ok(Value::Array(values))
