@@ -85,12 +85,13 @@ fn main() {
                 key.as_bytes(),
                 value.unwrap().as_str().unwrap().as_bytes()
             ).is_ok() {
-                true => Ok(Value::String("OK".to_string())),
+                true => {
+                    Ok(Value::String("OK".to_string()))
+                },
                 false => Ok(Value::String("ERROR".to_string()))
             }
         } else {
             let data = t.get(key.as_bytes()).unwrap();
-
             match data.is_some() {
                 true => {
                     Ok(Value::String(
